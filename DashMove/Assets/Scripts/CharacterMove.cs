@@ -9,7 +9,6 @@ namespace DashMove.Scripts
     {
 
         [SerializeField]TrailRenderer trailRenderer;
-        bool isDashing;
         new Rigidbody2D rigidbody2D;
         float localScaleY;
         [SerializeField] float characterSpeed = 0f;
@@ -21,7 +20,7 @@ namespace DashMove.Scripts
        [SerializeField] float EffectTime = 1f;
         float EffectTime2;
         bool control;
-        float time=0f;
+        
 
 
         private void Awake()
@@ -48,7 +47,6 @@ namespace DashMove.Scripts
                 EffectTime = EffectTime2;
 
             }
-            
         }
         private void FixedUpdate()
         {
