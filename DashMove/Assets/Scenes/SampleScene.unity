@@ -198,7 +198,7 @@ TrailRenderer:
   m_Time: 0.5
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 3.5
+    widthMultiplier: 40
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -286,7 +286,7 @@ Transform:
   m_GameObject: {fileID: 501476300}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -14.959406, y: -0.22440463, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children:
   - {fileID: 551773709}
   m_Father: {fileID: 0}
@@ -335,7 +335,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.05332184, y: -16.147818}
+  m_Offset: {x: -4.1851196, y: -342.44635}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -346,7 +346,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 53.575066, y: 1.9574633}
+  m_Size: {x: 1113.9113, y: 56.844696}
   m_EdgeRadius: 0
 --- !u!20 &519420031
 Camera:
@@ -375,7 +375,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 15.118998
+  orthographic size: 316.1373
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -418,7 +418,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -28.721003, y: 0.05308914}
+  m_Offset: {x: -622.2036, y: -1.4811859}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -429,7 +429,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.0173683, y: 30.411156}
+  m_Size: {x: 112.22363, y: 627.68555}
   m_EdgeRadius: 0
 --- !u!61 &519420034
 BoxCollider2D:
@@ -444,7 +444,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 29.145712, y: 0.05308914}
+  m_Offset: {x: 592.4288, y: 3.494049}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -455,7 +455,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.0791435, y: 30.411156}
+  m_Size: {x: 55.050903, y: 624.5538}
   m_EdgeRadius: 0
 --- !u!61 &519420035
 BoxCollider2D:
@@ -470,7 +470,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.05308914, y: 16.457506}
+  m_Offset: {x: -3.3304443, y: 345.3777}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -481,7 +481,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 53.770195, y: 2.274129}
+  m_Size: {x: 1132.5349, y: 51.134277}
   m_EdgeRadius: 0
 --- !u!1 &551773708
 GameObject:
@@ -512,7 +512,7 @@ Transform:
   m_GameObject: {fileID: 551773708}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 23.25, y: -3.14, z: -7.2}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 475717163}
   m_Father: {fileID: 501476301}
@@ -531,11 +531,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trailRenderer: {fileID: 475717164}
-  DashForce: 0
-  StartDashTimer: 0
-  characterSpeed: 0.5
-  DashSpeed: 10
-  EffectTime: 0.5
+  characterSpeed: 10
+  DashSpeed: 3
+  EffectTime: 0.1
 --- !u!50 &551773711
 Rigidbody2D:
   serializedVersion: 4
@@ -634,3 +632,33 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1498602280
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1498602281}
+  m_Layer: 0
+  m_Name: "alay\u0131"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1498602281
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498602280}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 25.424831, y: -49.244804, z: -1353.9545}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

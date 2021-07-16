@@ -9,10 +9,6 @@ namespace DashMove.Scripts
     {
 
         [SerializeField]TrailRenderer trailRenderer;
-        public float DashForce;
-        public float StartDashTimer;
-        float currentDashTimer;
-        float dashDirection;
         bool isDashing;
         new Rigidbody2D rigidbody2D;
         float localScaleY;
@@ -25,7 +21,7 @@ namespace DashMove.Scripts
        [SerializeField] float EffectTime = 1f;
         float EffectTime2;
         bool control;
-
+        float time=0f;
 
 
         private void Awake()
@@ -44,15 +40,23 @@ namespace DashMove.Scripts
             localScaleY = transform.localScale.y;
         }
 
+        private void Update()
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                control = true;
+                EffectTime = EffectTime2;
+
+            }
+            
+        }
         private void FixedUpdate()
         {
 
 
-            if (Input.GetKeyDown(KeyCode.O))
-            {
-                control = true;
-                EffectTime = EffectTime2;
-            }
+            
+
+
 
 
             if (control == true)
@@ -78,7 +82,7 @@ namespace DashMove.Scripts
             if (Input.GetKey(KeyCode.W))
             {
                 transform.position += new Vector3(0, vertical * characterSpeed, 0);
-                if (Input.GetKeyDown(KeyCode.O)) // tek seferlik yakalama için getkeydown
+                if (Input.GetMouseButton(0)) // tek seferlik yakalama için getkeydown
                 {
 
                     direction = 0;
@@ -94,7 +98,7 @@ namespace DashMove.Scripts
                 transform.localScale = new Vector3(-localScaleY, transform.localScale.y, transform.localScale.z);
                 transform.position += new Vector3(horizontal * characterSpeed, 0, 0);
 
-                if (Input.GetKeyDown(KeyCode.O)) // tek seferlik yakalama için getkeydown
+                if (Input.GetMouseButton(0)) // tek seferlik yakalama için getkeydown
                 {
                     direction = 1;
                     dashFunction();
@@ -106,7 +110,7 @@ namespace DashMove.Scripts
             if (Input.GetKey(KeyCode.S))
             {
                 transform.position += new Vector3(0, vertical * characterSpeed, 0);
-                if (Input.GetKeyDown(KeyCode.O)) // tek seferlik yakalama için getkeydown
+                if (Input.GetMouseButton(0)) // tek seferlik yakalama için getkeydown
                 {
                     direction = 2;
                     dashFunction();
@@ -119,7 +123,7 @@ namespace DashMove.Scripts
             {
                 transform.localScale = new Vector3(localScaleY, transform.localScale.y, transform.localScale.z);
                 transform.position += new Vector3(horizontal * characterSpeed, 0, 0);
-                if (Input.GetKeyDown(KeyCode.O)) // tek seferlik yakalama için getkeydown
+                if (Input.GetMouseButton(0)) // tek seferlik yakalama için getkeydown
                 {
                     direction = 3;
                     dashFunction();
@@ -141,17 +145,24 @@ namespace DashMove.Scripts
 
 
 
-                transform.position += new Vector3(0, vertical * characterSpeed*DashSpeed, 0);
+                if (EffectTime > 0)
+                {
+                    transform.position += new Vector3(0, vertical * characterSpeed * DashSpeed, 0);
+                }
+                
                 
 
 
             }
             if (direction == 1)
             {
-               
-                
-                
+
+
+                if (EffectTime > 0)
+                {
                     transform.position += new Vector3(horizontal * characterSpeed * DashSpeed, 0, 0);
+                }
+                    
                 
 
             }
@@ -159,8 +170,11 @@ namespace DashMove.Scripts
             if (direction == 2)
             {
 
-
-                transform.position += new Vector3(0, vertical * characterSpeed*DashSpeed, 0);
+                if(EffectTime > 0)
+                {
+                    transform.position += new Vector3(0, vertical * characterSpeed * DashSpeed, 0);
+                }
+                
                 
 
 
@@ -169,8 +183,11 @@ namespace DashMove.Scripts
             {
 
 
-
-                transform.position += new Vector3(horizontal * characterSpeed*DashSpeed, 0, 0);
+                if(EffectTime > 0)
+                {
+                    transform.position += new Vector3(horizontal * characterSpeed * DashSpeed, 0, 0);
+                }
+               
                 
 
             }
