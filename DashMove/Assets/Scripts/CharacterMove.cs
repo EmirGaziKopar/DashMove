@@ -7,6 +7,8 @@ namespace DashMove.Scripts
 
     public class CharacterMove : MonoBehaviour
     {
+
+        [SerializeField]TrailRenderer trailRenderer;
         public float DashForce;
         public float StartDashTimer;
         float currentDashTimer;
@@ -20,15 +22,19 @@ namespace DashMove.Scripts
         //How much time the character move
         float horizontal;
         float vertical;
-        
- 
-
+       [SerializeField] float EffectTime = 1f;
+        float EffectTime2;
+        bool control;
 
 
 
         private void Awake()
         {
             rigidbody2D = GetComponent<Rigidbody2D>();
+
+            trailRenderer = GetComponentInChildren<TrailRenderer>();
+
+            EffectTime2 = EffectTime;
 
         }
 
@@ -41,6 +47,30 @@ namespace DashMove.Scripts
         private void FixedUpdate()
         {
 
+
+            if (Input.GetKeyDown(KeyCode.O))
+            {
+                control = true;
+                EffectTime = EffectTime2;
+            }
+
+
+            if (control == true)
+            {
+                if (EffectTime > -0.2)
+                {
+                    EffectTime -= Time.deltaTime;
+                    trailRenderer.emitting = true;
+
+                }
+                
+                if (EffectTime < 0)
+                {
+                    trailRenderer.emitting = false;
+                    
+                }
+            }
+
             horizontal = Input.GetAxis("Horizontal");
 
             vertical = Input.GetAxis("Vertical");
@@ -50,8 +80,11 @@ namespace DashMove.Scripts
                 transform.position += new Vector3(0, vertical * characterSpeed, 0);
                 if (Input.GetKeyDown(KeyCode.O)) // tek seferlik yakalama için getkeydown
                 {
+
                     direction = 0;
                     dashFunction();
+                    
+
 
 
                 }
@@ -65,6 +98,7 @@ namespace DashMove.Scripts
                 {
                     direction = 1;
                     dashFunction();
+                    
 
 
                 }
@@ -76,6 +110,7 @@ namespace DashMove.Scripts
                 {
                     direction = 2;
                     dashFunction();
+                    
 
 
                 }
@@ -88,6 +123,7 @@ namespace DashMove.Scripts
                 {
                     direction = 3;
                     dashFunction();
+                    
 
 
                 }
@@ -106,6 +142,7 @@ namespace DashMove.Scripts
 
 
                 transform.position += new Vector3(0, vertical * characterSpeed*DashSpeed, 0);
+                trailRenderer.emitting = true;
 
 
             }
@@ -115,7 +152,8 @@ namespace DashMove.Scripts
                 
                 
                     transform.position += new Vector3(horizontal * characterSpeed * DashSpeed, 0, 0);
-                
+                trailRenderer.emitting = true;
+
             }
             
             if (direction == 2)
@@ -123,6 +161,7 @@ namespace DashMove.Scripts
 
 
                 transform.position += new Vector3(0, vertical * characterSpeed*DashSpeed, 0);
+                trailRenderer.emitting = true;
 
 
             }
@@ -132,6 +171,7 @@ namespace DashMove.Scripts
 
 
                 transform.position += new Vector3(horizontal * characterSpeed*DashSpeed, 0, 0);
+                trailRenderer.emitting = true;
 
             }
         }
