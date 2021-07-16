@@ -142,7 +142,7 @@ namespace DashMove.Scripts
 
 
                 transform.position += new Vector3(0, vertical * characterSpeed*DashSpeed, 0);
-                trailRenderer.emitting = true;
+                
 
 
             }
@@ -152,7 +152,7 @@ namespace DashMove.Scripts
                 
                 
                     transform.position += new Vector3(horizontal * characterSpeed * DashSpeed, 0, 0);
-                trailRenderer.emitting = true;
+                
 
             }
             
@@ -161,7 +161,7 @@ namespace DashMove.Scripts
 
 
                 transform.position += new Vector3(0, vertical * characterSpeed*DashSpeed, 0);
-                trailRenderer.emitting = true;
+                
 
 
             }
@@ -171,7 +171,7 @@ namespace DashMove.Scripts
 
 
                 transform.position += new Vector3(horizontal * characterSpeed*DashSpeed, 0, 0);
-                trailRenderer.emitting = true;
+                
 
             }
         }
