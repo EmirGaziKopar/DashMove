@@ -1,3 +1,4 @@
+using DashMove.Controller;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,8 @@ namespace DashMove.Scripts
 
     public class CharacterMove : MonoBehaviour
     {
-
+        PcInput pcInput;
+        GameObject astr;
         [SerializeField]TrailRenderer trailRenderer;
         new Rigidbody2D rigidbody2D;
         float localScaleY;
@@ -30,6 +32,7 @@ namespace DashMove.Scripts
             trailRenderer = GetComponentInChildren<TrailRenderer>();
 
             EffectTime2 = EffectTime;
+            pcInput = this.GetComponent<PcInput>();
 
         }
 
@@ -77,7 +80,7 @@ namespace DashMove.Scripts
 
             vertical = Input.GetAxis("Vertical");
 
-            if (Input.GetKey(KeyCode.W))
+            if (pcInput.pressW)
             {
                 transform.position += new Vector3(0, vertical * characterSpeed, 0);
                 if (Input.GetMouseButton(0)) // tek seferlik yakalama için getkeydown
@@ -91,7 +94,7 @@ namespace DashMove.Scripts
 
                 }
             }
-            if (Input.GetKey(KeyCode.A))
+            if (pcInput.pressA)
             {
                 transform.localScale = new Vector3(-localScaleY, transform.localScale.y, transform.localScale.z);
                 transform.position += new Vector3(horizontal * characterSpeed, 0, 0);
@@ -105,7 +108,7 @@ namespace DashMove.Scripts
 
                 }
             }
-            if (Input.GetKey(KeyCode.S))
+            if (pcInput.pressS)
             {
                 transform.position += new Vector3(0, vertical * characterSpeed, 0);
                 if (Input.GetMouseButton(0)) // tek seferlik yakalama için getkeydown
@@ -117,7 +120,7 @@ namespace DashMove.Scripts
 
                 }
             }
-            if (Input.GetKey(KeyCode.D))
+            if (pcInput.pressD)
             {
                 transform.localScale = new Vector3(localScaleY, transform.localScale.y, transform.localScale.z);
                 transform.position += new Vector3(horizontal * characterSpeed, 0, 0);
